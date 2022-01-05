@@ -307,7 +307,7 @@ $conn = pg_connect($conn_string);
       $email = $_POST['email'];
       $message = $_POST['message'];
 
-      $sql = "INSERT INTO `public.portfolios` VALUES ('$firstName','$lastName','$address','$email','$message')";
+      $sql = "INSERT INTO 'public.portfolios' VALUES ('$firstName','$lastName','$address','$email','$message')";
       if ($conn->query($sql) === TRUE) {
 
         echo "<h2 style='color:#ff002f;text-shadow:3px 0px 2px darkslategrey;font-weight: bold;padding-bottom:15px;text-align:center;'>Message sent successsfully</h2>";
@@ -317,16 +317,6 @@ $conn = pg_connect($conn_string);
     }
 
     ?>
-
-
-    <?php
-
-$conn_string = "host=ec2-54-172-219-6.compute-1.amazonaws.com port=5432 dbname=djrpbbfue4mcl user=uclnuilyeqylxn password=0f8b2131e48996660465a9f87e6c95e4e17e1d7933d4cf626b287d61b3cde4c6";
-$dbconn4 = pg_connect($conn_string);
-//connect to a database named "test" on the host "sheep" with a username and password
-
-?>
-
 
 
 
