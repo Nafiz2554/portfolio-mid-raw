@@ -1,3 +1,12 @@
+  <?php
+$db = pg_connect("host=ec2-54-172-219-6.compute-1.amazonaws.com port=5432 dbname=djrpbbfue4mcl user=uclnuilyeqylxn password=0f8b2131e48996660465a9f87e6c95e4e17e1d7933d4cf626b287d61b3cde4c6");
+
+ $query = pg_query($db_conn, "INSERT INTO public.portfolios(firstname, lastname, address, email, message) VALUES ('$_POST[firstName]', '$_POST[lastName]', '$_POST[address]','$_POST[email]' , '$_POST[message]');");
+    if ( $query ) {
+        echo "<h2 style='color:#ff002f;text-shadow:3px 0px 2px darkslategrey;font-weight: bold;padding-bottom:15px;text-align:center;'>Message sent successsfully</h2>";
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -319,18 +328,6 @@
       </div>
     </div>
   </section>
-
-  <?php
-$db = pg_connect("host=ec2-54-172-219-6.compute-1.amazonaws.com port=5432 dbname=djrpbbfue4mcl user=uclnuilyeqylxn password=0f8b2131e48996660465a9f87e6c95e4e17e1d7933d4cf626b287d61b3cde4c6");
- $sql = "INSERT INTO `public.portfolios`(firstName, lastName, address, email, message) VALUES ('$_POST[firstName]', '$_POST[lastName]', '$_POST[address]','$_POST[email]' , '$_POST[message]')";
-$result = pg_query($sql); 
-
-if ($result === TRUE) {
-
-        echo "<h2 style='color:#ff002f;text-shadow:3px 0px 2px darkslategrey;font-weight: bold;padding-bottom:15px;text-align:center;'>Message sent successsfully</h2>";
-      }
-    }
-?>
 
 
 
