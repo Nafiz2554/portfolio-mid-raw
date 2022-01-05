@@ -307,8 +307,7 @@ $conn = pg_connect($conn_string);
       $email = $_POST['email'];
       $message = $_POST['message'];
 
-      $sql = "INSERT INTO `public.portfolios`(firstname, lastname, address, email, message)
-  VALUES ($firstName, $lastName, $address,$email , $message);"
+      $sql = "INSERT INTO `public.portfolios`(firstname, lastname, address, email, message) VALUES ($firstName, $lastName, $address,$email , $message)";
       if ($conn->query($sql) === TRUE) {
 
         echo "<h2 style='color:#ff002f;text-shadow:3px 0px 2px darkslategrey;font-weight: bold;padding-bottom:15px;text-align:center;'>Message sent successsfully</h2>";
