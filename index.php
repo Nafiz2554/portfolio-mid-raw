@@ -11,38 +11,6 @@
 </head>
 
 <body>
-  <?php
-    $conn_string = "host=ec2-54-172-219-6.compute-1.amazonaws.com port=5432 dbname=djrpbbfue4mcl user=uclnuilyeqylxn password=0f8b2131e48996660465a9f87e6c95e4e17e1d7933d4cf626b287d61b3cde4c6";
-
-//connect to a database named "test" on the host "sheep" with a username and password
-
-    // Create connection
-$conn = pg_connect($conn_string);
-    // Check connection
-    if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-    }
-
-
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-      $firstName = $_POST['firstName'];
-      $lastName = $_POST['lastName'];
-      $address = $_POST['address'];
-      $email = $_POST['email'];
-      $message = $_POST['message'];
-
-      $sql = "INSERT INTO `public.portfolios`(firstname, lastname, address, email, message) VALUES ($firstName, $lastName, $address,$email , $message)";
-      if ($conn->query($sql) === TRUE) {
-
-        echo "<h2 style='color:#ff002f;text-shadow:3px 0px 2px darkslategrey;font-weight: bold;padding-bottom:15px;text-align:center;'>Message sent successsfully</h2>";
-      } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-      }
-    }
-
-    ?>
-
   <!--Navbar-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
@@ -324,7 +292,7 @@ $conn = pg_connect($conn_string);
 
         </div>
         <div class="col-lg-5 col-12">
-          <form action="https://nafis54.herokuapp.com/index.php" method="post">
+          <form action="index.php" method="post">
             <div class="mb-3">
               <label class="form-label"><b>First Name</b></label>
               <input type="text" class="form-control" name="firstName">
@@ -352,7 +320,19 @@ $conn = pg_connect($conn_string);
     </div>
   </section>
 
+  <?php
+$db = pg_connect("host=ec2-54-172-219-6.compute-1.amazonaws.com port=5432 dbname=djrpbbfue4mcl user=uclnuilyeqylxn password=0f8b2131e48996660465a9f87e6c95e4e17e1d7933d4cf626b287d61b3cde4c6");
+ $sql = "INSERT INTO `public.portfolios`(firstname, lastname, address, email, message) VALUES ('$_POST[firstName]', '$_POST[lastName]', '$_POST[address]','$_POST[email]' , '$_POST[message]')";
+$result = pg_query($sql); 
 
+if ($result === TRUE) {
+
+        echo "<h2 style='color:#ff002f;text-shadow:3px 0px 2px darkslategrey;font-weight: bold;padding-bottom:15px;text-align:center;'>Message sent successsfully</h2>";
+      } else {
+        echo "Error: " . $sql . "<br>" . $result->error;
+      }
+    }
+?>
 
 
 
