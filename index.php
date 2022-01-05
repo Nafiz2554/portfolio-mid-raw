@@ -292,7 +292,7 @@
 
         </div>
         <div class="col-lg-5 col-12">
-          <form action="index.php/#contact" method="post">
+          <form action="index.php" method="post">
             <div class="mb-3">
               <label class="form-label"><b>First Name</b></label>
               <input type="text" class="form-control" name="firstName">
