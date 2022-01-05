@@ -74,7 +74,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="#home">Home</a>
+            <a class="nav-link" href="https://nafis54.herokuapp.com/#home">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#about">About</a>
@@ -307,7 +307,7 @@ $conn = pg_connect($conn_string);
       $email = $_POST['email'];
       $message = $_POST['message'];
 
-      $sql = "INSERT INTO public.portfolios(firstname, lastname, address, email, message)
+      $sql = "INSERT INTO `public.portfolios`(firstname, lastname, address, email, message)
   VALUES ($firstName, $lastName, $address,$email , $message);"
       if ($conn->query($sql) === TRUE) {
 
